@@ -15,7 +15,7 @@ openvdb::FloatGrid::Ptr create_grid(float background_value, float voxel_size) {
   return grid;
 }
 
-void fill_vdb_grid(const openvdb::FloatGrid::Ptr &grid,
+void fill_grid(const openvdb::FloatGrid::Ptr &grid,
                    const tensors::tensor_3d &data) {
   using ValueT = typename openvdb::FloatGrid::ValueType;
   typename openvdb::FloatGrid::Accessor accessor = grid->getAccessor();
