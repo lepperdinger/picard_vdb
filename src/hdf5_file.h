@@ -8,7 +8,7 @@
 #include "tensors.h"
 #include <hdf5.h>
 
-namespace read {
+namespace hdf5_file {
 
 tensors::tensor_3d read_3d_dataset(const std::string &file_name,
                                    const std::string &dataset_name);

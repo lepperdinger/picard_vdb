@@ -2,11 +2,11 @@
 // Created by stefan on 7/23/22.
 //
 
-#include "read.h"
+#include "hdf5_file.h"
 #include <iostream>
 #include <memory>
 
-namespace read {
+namespace hdf5_file {
 
 tensors::tensor_3d read_3d_dataset(const std::string &file_name,
                                    const std::string &dataset_name) {
@@ -16,7 +16,7 @@ tensors::tensor_3d read_3d_dataset(const std::string &file_name,
     std::exit(1);
   }
   hid_t dataset = H5Dopen2(file, dataset_name.c_str(), H5P_DEFAULT);
-  if (dataset  < 0) {
+  if (dataset < 0) {
     std::cerr << "error: Couldn't open the dataset '" << dataset_name << "'\n";
     std::exit(1);
   }
