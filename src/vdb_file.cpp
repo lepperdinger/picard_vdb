@@ -1,7 +1,4 @@
-//
-// Created by stefan on 7/23/22.
-//
-
+// Author: Stefan Lepperdinger
 #include "vdb_file.h"
 
 namespace vdb_file {

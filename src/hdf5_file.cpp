@@ -1,7 +1,4 @@
-//
-// Created by stefan on 7/23/22.
-//
-
+// Author: Stefan Lepperdinger
 #include "hdf5_file.h"
 #include <iostream>
 #include <memory>

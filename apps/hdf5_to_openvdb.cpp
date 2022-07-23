@@ -1,3 +1,4 @@
+// Author: Stefan Lepperdinger
 #include "hdf5_file.h"
 #include "vdb_file.h"
 #include <iostream>

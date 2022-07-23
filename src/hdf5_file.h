@@ -1,7 +1,4 @@
-//
-// Created by stefan on 7/23/22.
-//
-
+// Author: Stefan Lepperdinger
 #ifndef HDF5_TO_OPENVDB_SRC_READ_H
 #define HDF5_TO_OPENVDB_SRC_READ_H
 
