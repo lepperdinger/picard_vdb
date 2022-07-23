@@ -11,10 +11,11 @@ int main(int argc, char *argv[]) {
   }
   std::string source_path = argv[1];
   std::string dataset_name = argv[2];
-  std::string destination = argv[3];
+  std::string destination_path = argv[3];
 
   auto data = hdf5_file::read_3d_dataset(source_path, dataset_name);
   auto grid = vdb_file::create_grid();
   vdb_file::fill_grid(grid, data);
+  vdb_file::save_file(destination_path, grid);
   return 0;
 }

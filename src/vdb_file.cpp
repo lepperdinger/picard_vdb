@@ -16,7 +16,7 @@ openvdb::FloatGrid::Ptr create_grid(float background_value, float voxel_size) {
 }
 
 void fill_grid(const openvdb::FloatGrid::Ptr &grid,
-                   const tensors::tensor_3d &data) {
+               const tensors::tensor_3d &data) {
   using ValueT = typename openvdb::FloatGrid::ValueType;
   typename openvdb::FloatGrid::Accessor accessor = grid->getAccessor();
   openvdb::Coord xyz_coordinates;
@@ -34,6 +34,15 @@ void fill_grid(const openvdb::FloatGrid::Ptr &grid,
       }
     }
   }
+}
+
+void save_file(const std::string &file_path,
+               const openvdb::FloatGrid::Ptr &grid) {
+  openvdb::io::File file(file_path);
+  openvdb::GridPtrVec grids;
+  grids.push_back(grid);
+  file.write(grids);
+  file.close();
 }
 
 } // namespace vdb_file
