@@ -1,6 +1,6 @@
 // Author: Stefan Lepperdinger
-#ifndef HDF5_TO_OPENVDB_SRC_VDB_FILE_H
-#define HDF5_TO_OPENVDB_SRC_VDB_FILE_H
+#ifndef PICARD_VDB_SRC_VDB_FILE_H
+#define PICARD_VDB_SRC_VDB_FILE_H
 
 #include "tensors.h"
 #include <openvdb/openvdb.h>
@@ -17,4 +17,4 @@ void save_file(const std::string &file_path,
 
 } // namespace vdb_file
 
-#endif // HDF5_TO_OPENVDB_SRC_VDB_FILE_H
+#endif // PICARD_VDB_SRC_VDB_FILE_H

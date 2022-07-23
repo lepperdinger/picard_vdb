@@ -1,6 +1,6 @@
 // Author: Stefan Lepperdinger
-#ifndef GAMMA_SKY_SRC_TENSORS_H
-#define GAMMA_SKY_SRC_TENSORS_H
+#ifndef PICARD_VDB_SRC_TENSORS_H
+#define PICARD_VDB_SRC_TENSORS_H
 
 #include <array>
 #include <vector>
@@ -23,4 +23,4 @@ tensor_4d make_4d_tensor(std::array<size_t, 4> dimensions,
 
 } // namespace tensors
 
-#endif // GAMMA_SKY_SRC_TENSORS_H
+#endif // PICARD_VDB_SRC_TENSORS_H
