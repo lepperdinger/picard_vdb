@@ -8,7 +8,8 @@
 namespace hdf5_file {
 
 tensors::tensor_3d read_3d_dataset(const std::string &file_name,
-                                   const std::string &dataset_name);
+                                   const std::string &dataset_name,
+                                   bool reverse_order);
 
 }
 

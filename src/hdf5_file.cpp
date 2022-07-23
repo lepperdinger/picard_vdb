@@ -6,7 +6,8 @@
 namespace hdf5_file {
 
 tensors::tensor_3d read_3d_dataset(const std::string &file_name,
-                                   const std::string &dataset_name) {
+                                   const std::string &dataset_name,
+                                   bool reverse_order) {
   hid_t file = H5Fopen(file_name.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
   if (file < 0) {
     std::cerr << "error: Couldn't open the file '" << file_name << "'\n";
@@ -36,17 +37,32 @@ tensors::tensor_3d read_3d_dataset(const std::string &file_name,
   H5Dread(dataset, H5T_NATIVE_FLOAT, memory_space, file_space, H5P_DEFAULT,
           buffer.get());
 
-  // Picard saves the dimensions in reverse order: z, y, x
-  size_t x_dimension = dimensions[2];
-  size_t y_dimension = dimensions[1];
-  size_t z_dimension = dimensions[0];
+  size_t x_dimension;
+  size_t y_dimension;
+  size_t z_dimension;
+  if (reverse_order) {
+    x_dimension = dimensions[2];
+    y_dimension = dimensions[1];
+    z_dimension = dimensions[0];
+  } else {
+    x_dimension = dimensions[0];
+    y_dimension = dimensions[1];
+    z_dimension = dimensions[2];
+  }
   auto data = tensors::make_3d_tensor({x_dimension, y_dimension, z_dimension});
   for (size_t x{}; x != x_dimension; ++x) {
     for (size_t y{}; y != y_dimension; ++y) {
       for (size_t z{}; z != z_dimension; ++z) {
-        size_t data_index = z * y_dimension * x_dimension;
-        data_index += y * x_dimension;
-        data_index += x;
+        size_t data_index;
+        if (reverse_order) {
+          data_index = z * y_dimension * x_dimension;
+          data_index += y * x_dimension;
+          data_index += x;
+        } else {
+          data_index = x * y_dimension * z_dimension;
+          data_index += y * z_dimension;
+          data_index += z;
+        }
         data[x][y][z] = buffer[data_index];
       }
     }
