@@ -7,7 +7,6 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 # libraries ####################################################################
 
-
 # Half library
 find_library(HALF_LIBRARY Half)
 
@@ -25,6 +24,7 @@ find_package(OpenVDB REQUIRED)
 
 # executable ###################################################################
 
+include_directories(src)
 file(GLOB SRC CONFIGURE_DEPENDS "src/*.h" "src/*.cpp")
 
 add_executable(
