@@ -62,4 +62,4 @@ tensors::tensor_3d read_3d_dataset(const std::string &file_name,
   return data;
 }
 
-} // namespace read
+} // namespace hdf5_file

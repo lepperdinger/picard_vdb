@@ -15,5 +15,6 @@ int main(int argc, char *argv[]) {
 
   auto data = hdf5_file::read_3d_dataset(source_path, dataset_name);
   auto grid = vdb_file::create_grid();
+  vdb_file::fill_vdb_grid(grid, data);
   return 0;
 }
