@@ -1,4 +1,5 @@
 #include "hdf5_file.h"
+#include "vdb_file.h"
 #include <iostream>
 
 int main(int argc, char *argv[]) {
@@ -13,5 +14,6 @@ int main(int argc, char *argv[]) {
   std::string destination = argv[3];
 
   auto data = hdf5_file::read_3d_dataset(source_path, dataset_name);
+  auto grid = vdb_file::create_grid();
   return 0;
 }
